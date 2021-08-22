@@ -1,7 +1,7 @@
 import { Container } from 'pixi.js-legacy'
 import { gameApp, stage, loader } from './config/config'
 import { assets } from './config/assets'
-import { TitleScreen, GameScreen } from './modules/screens'
+import { ScreenHandler, TitleScreen, GameScreen } from './modules/screens'
 
 import { basicSprite } from  './modules/simpleSprite'
 
@@ -26,16 +26,25 @@ loader
   .load(start);
 
 
+// Screen ceation and pass to handler
+let titlescreen = new TitleScreen(stage)
+let gamescreen = new GameScreen(stage)
+// Set screens with name to be call inside each one
+let screens = [
+  {name:'titlescreen',data:titlescreen},
+  {name:'gamescreen',data:gamescreen}
+]
+
+
 // Start Game
 function start() {
     loadingScreen.visible = false // Hide Loading Screen
-
-    // Creacion de Screens
-    let titlescreen = new TitleScreen(stage)
-    let gamescreen = new GameScreen(stage)
+    let screenhandler = new ScreenHandler(screens) // Set handler
+    titlescreen.init = true // Initialize Title Screen
 
     gameApp.ticker.add((deltaTime) => {
         // Update Loop
         titlescreen.update(deltaTime)
+        gamescreen.update(deltaTime)
     });
 }

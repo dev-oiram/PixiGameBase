@@ -14,7 +14,7 @@ settings.GC_MODE = GC_MODES.AUTO
 settings.SCALE_MODE = SCALE_MODES.NEAREST;
 
 //Set Pixi Application
-var app = new Application(config.gameWidth, config.gameHeight);
+var app = new Application({width:config.gameWidth, height: config.gameHeight})
 app.renderer.backgroundColor = config.color;
 app.autoResize = true;
 
