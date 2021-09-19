@@ -6,6 +6,7 @@ import { config } from '../config/config'
 import { animSprite } from '../modules/simpleSprite'
 
 
+// Screen Handler to set active screen
 class ScreenHandler {
     constructor(screens = []) {
         this.screens = screens
@@ -130,7 +131,7 @@ class GameScreen {
         sound.play('gameMusic',{loop:true,volume:0.25})
 
         // ============ Animation Sprites =========================
-        this.fire = animSprite('fire',400,300,128,128,5,0.1)
+        this.fire = animSprite('fire',400,300,128,128,5,0.15)
         this.container.addChild(this.fire)
         this.fire.play()
 

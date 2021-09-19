@@ -10,7 +10,7 @@ import { basicSprite } from  './modules/simpleSprite'
 document.body.appendChild(gameApp.view);
 
 // Loading Screen ===============
-let loadingScreen = new Container()
+const loadingScreen = new Container()
 stage.addChild(loadingScreen)
 
 loader.onStart.add(() => {
@@ -27,10 +27,10 @@ loader
 
 
 // Screen ceation and pass to handler
-let titlescreen = new TitleScreen(stage)
-let gamescreen = new GameScreen(stage)
+const titlescreen = new TitleScreen(stage)
+const gamescreen = new GameScreen(stage)
 // Set screens with name to be call inside each one
-let screens = [
+const screens = [
   {name:'titlescreen',data:titlescreen},
   {name:'gamescreen',data:gamescreen}
 ]
@@ -39,7 +39,7 @@ let screens = [
 // Start Game
 function start() {
     loadingScreen.visible = false // Hide Loading Screen
-    let screenhandler = new ScreenHandler(screens) // Set handler
+    new ScreenHandler(screens) // Set initialize handler
     titlescreen.init = true // Initialize Title Screen
 
     gameApp.ticker.add((deltaTime) => {
