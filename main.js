@@ -1,5 +1,5 @@
 import { Container } from 'pixi.js-legacy'
-import { gameApp, stage, loader } from './config/config'
+import { gameApp, stage, loader, config } from './config/config'
 import { assets } from './config/assets'
 import { ScreenHandler, TitleScreen, GameScreen } from './modules/screens'
 
@@ -14,7 +14,12 @@ const loadingScreen = new Container()
 stage.addChild(loadingScreen)
 
 loader.onStart.add(() => {
-  let load_background = basicSprite('./assets/loadingscreen.png',800/2,600/2,800,600)
+  let load_background = basicSprite(
+    './assets/loadingscreen.png',
+    config.gameWidth/2,
+    config.gameHeight/2,
+    config.gameWidth,
+    config.gameHeight)
   loadingScreen.addChild(load_background)
 })
 // Loading Screen ===============
