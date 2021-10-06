@@ -56,7 +56,8 @@ class TitleScreen {
         sound.play('titleMusic',{loop:true,volume:0.25})
 
         // Button Sprite
-        this.btn_ok = new Button(400,550,150,40,'btn_ok').getSprite()
+        const btn_ok_x=400, btn_ok_y=550, btn_ok_width=150, btn_ok_height=40
+        this.btn_ok = new Button(btn_ok_x,btn_ok_y,btn_ok_width,btn_ok_height,'btn_ok').getSprite()
         this.container.addChild(this.btn_ok)
         this.btn_ok.on('pointerdown', () => {
             sound.stop('titleMusic')
@@ -96,12 +97,14 @@ class GameScreen {
         this.menu_background = new GameBackground(config.gameWidth/2,config.gameHeight/2,
             config.gameWidth,config.gameHeight,'menuscreen')
         
-        this.btn_cancel = new Button(570,90,40,40,'btn_cancel').getSprite()
+        const btn_cancel_x=570, btn_cancel_y=90, btn_cancel_width=40, btn_cancel_height=40
+        this.btn_cancel = new Button(btn_cancel_x,btn_cancel_y,btn_cancel_width,btn_cancel_height,'btn_cancel').getSprite()
         this.btn_cancel.on('pointerdown', () => {
             this.menuScreen.visible = false
         });
 
-        this.btn_exit = new Button(400,490,150,40,'btn_exit').getSprite()
+        const btn_exit_x=400, btn_exit_y=490, btn_exit_width=150, btn_exit_height=40
+        this.btn_exit = new Button(btn_exit_x,btn_exit_y,btn_exit_width,btn_exit_height,'btn_exit').getSprite()
         this.btn_exit.on('pointerdown', () => {
             sound.stop('gameMusic')
             this.menuScreen.visible = false
@@ -131,12 +134,15 @@ class GameScreen {
         sound.play('gameMusic',{loop:true,volume:0.25})
 
         // ============ Animation Sprites =========================
-        this.fire = animSprite('fire',400,300,128,128,5,0.15)
+        const fire_x=400, fire_y=300, fire_width=128, fire_height=128, fire_sprites=5, fire_aspeed=0.15
+        const fire_speed = 10
+        this.fire = animSprite('fire',fire_x,fire_y,fire_width,fire_height,fire_sprites,fire_aspeed)
         this.container.addChild(this.fire)
         this.fire.play()
 
         // Button Sprite
-        this.btn_menu = new Button(60,30,150,40,'btn_menu').getSprite()
+        const btn_menu_x=60, btn_menu_y=30, btn_menu_width=150, btn_menu_height=40
+        this.btn_menu = new Button(btn_menu_x,btn_menu_y,btn_menu_width,btn_menu_height,'btn_menu').getSprite()
         this.container.addChild(this.btn_menu)
         this.btn_menu.on('pointerdown', () => {
             this.menuScreen.visible = true
@@ -145,10 +151,10 @@ class GameScreen {
         // Kyeboard Actions
         window.onkeydown = (key) =>{
             if(key.code == "ArrowRight"){
-                this.fire.x += 10
+                this.fire.x += fire_speed
             }
             if(key.code == "ArrowLeft"){
-                this.fire.x -= 10
+                this.fire.x -= fire_speed
             }
         }
 

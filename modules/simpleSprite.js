@@ -1,5 +1,7 @@
 import { Sprite, Texture, AnimatedSprite } from 'pixi.js';
 
+const centerAnchor = 0.5
+
 //basicSprite(TexturePath,x,y,width,height)
 function basicSprite(texturePath,x,y,wi,he) {
 	var sprt;
@@ -8,7 +10,7 @@ function basicSprite(texturePath,x,y,wi,he) {
   	sprt.height = he;
   	sprt.x = x;
   	sprt.y = y;
-  	sprt.anchor.set(0.5);
+  	sprt.anchor.set(centerAnchor);
   	return sprt;
 }
 
@@ -32,7 +34,7 @@ function animSprite(name,x,y,wi,he,num,aspeed){
 	 * An AnimatedSprite inherits all the properties of a PIXI sprite
 	 * so you can change its position, its anchor, mask it, etc
 	 */
-	anim.anchor.set(0.5);
+	anim.anchor.set(centerAnchor);
 	anim.x = x;
 	anim.y = y;
 	anim.width = wi;

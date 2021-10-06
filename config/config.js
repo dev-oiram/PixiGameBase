@@ -1,10 +1,15 @@
 import { settings, GC_MODES, SCALE_MODES, Application, Loader, Ticker } from 'pixi.js-legacy';
 
+// Game App Screen Size and base color
+const width = 800
+const height = 600
+const baseColor = 0x1099bb
+
 // Game config object
 const config = {
-    gameWidth: 800,
-    gameHeight: 600,
-    color: 0x1099bb
+    gameWidth: width,
+    gameHeight: height,
+    color: baseColor
 }
 
 // Garbage mode auto-activate
